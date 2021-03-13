@@ -1,0 +1,477 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgba(25, 26, 27, 1);
+  color: rgba(211, 207, 201, 1);
+}
+
+/* canvas {
+  width: 100vmin;
+  height: 100vmin;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50vh;
+  left: 50vw;
+} */
+
+.app {
+  width: 100vmin;
+  height: 100vmin;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50vh;
+  left: 50vw;
+  padding: 1vmin;
+  background-color: rgba(0, 0, 0, 0);
+  /* color: black; */
+  position: relative;
+}
+
+#svarknapp {
+  width: 16vmin;
+  height: 9vmin;
+  font-size: 4vmin;
+  position: absolute;
+  bottom: 2vmin;
+  right: 2vmin;
+  border-radius: 10vmin;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(65, 117, 5, 1);
+  transition: transform 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  outline: none;
+  border: none;
+}
+
+#svarknapp:hover {
+  background-color: rgba(2, 128, 144, 1);
+  transform: scale(1.1);
+}
+
+#svarknapp:active {
+  background-color: rgba(34, 146, 164, 1);
+  transform: scale(1.2) !important;
+}
+
+.appdiv {
+  position: absolute;
+  top: 10vmin;
+  left: 10vmin;
+  width: 80vmin;
+  height: 80vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  place-items: center;
+}
+
+.text,
+.svar {
+  width: 100%;
+  text-align: center;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.oppgaveTxt {
+  width: 100%;
+  height: 100%;
+  font-size: 5vmin;
+}
+
+.oppgaveSvar {
+  width: 100%;
+  height: 100%;
+  font-size: 5vmin;
+}
+
+.w1l {
+  width: 5vmin;
+}
+
+.w2l {
+  width: 10vmin;
+}
+
+.w3l {
+  width: 15vmin;
+}
+
+.w4l {
+  width: 20vmin;
+}
+
+.w5l {
+  width: 25vmin;
+}
+
+.w6l {
+  width: 30vmin;
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 10vmin;
+  /* background-color: rgba(255, 127, 17, 1); */
+  background-color: unset;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  border-radius: 5vmin;
+  padding: 3vmin;
+  z-index: 1;
+  bottom: 3vmin;
+
+  position: fixed;
+  transform: translate(-50%, 0);
+  left: 50vmin;
+
+  font-size: 5vmin;
+}
+
+.feil {
+  background-color: rgba(202, 60, 37, 1) !important;
+}
+
+.riktig {
+  background-color: rgba(125, 131, 255, 1) !important;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 1s;
+  animation: fadein 0.5s, fadeout 0.5s 1s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 3vmin;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 3vmin;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 3vmin;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 3vmin;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.openBtn {
+  width: 10vmin;
+  height: 10vmin;
+
+  position: fixed;
+  top: 0vmin;
+  right: 0vmin;
+
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background-color: #007cbe;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition: transform 0.5s ease, background-color 0.5s ease !important;
+
+  z-index: 2;
+}
+
+.openBtn:hover {
+  background-color: #41a2df;
+}
+
+.openBtn:active {
+  background-color: #1450c7;
+}
+
+.openBtn span {
+  /* font-size: 10vmin !important; */
+
+  background-color: #1a1a1b !important;
+
+  clip-path: polygon(50% 70%, 20% 40%, 80% 40%) !important;
+
+  width: 100%;
+  height: 100%;
+}
+
+.rot180 {
+  transform: rotate(180deg) !important;
+}
+
+.openDiv {
+  width: 100vmin;
+  height: 100vmin;
+  background-color: rgba(38, 70, 83, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 5vmin;
+  padding: 3vmin;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.openDiv.showOpenDiv {
+  display: block !important;
+}
+
+.openDiv:not(.showOpenDiv) {
+  display: none !important;
+}
+
+/** EXAMPLE
+  <label class="tgl">
+    <input type="checkbox" />
+    <span data-on="Text to display when on" data-off="Text to display when off">Text to always display</span>
+  </label>
+**/
+.tgl {
+  position: relative;
+  outline: 0;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  margin: 0.5vmin;
+}
+
+.tgl,
+.tgl * {
+  font-size: 120% !important;
+  font-weight: 550 !important;
+}
+
+.tgl,
+.tgl:after,
+.tgl:before,
+.tgl *,
+.tgl *:after,
+.tgl *:before,
+.tgl + .tgl-btn {
+  box-sizing: border-box;
+}
+
+.tgl::selection,
+.tgl:after::selection,
+.tgl:before::selection,
+.tgl *::selection,
+.tgl *:after::selection,
+.tgl *:before::selection,
+.tgl + .tgl-btn::selection {
+  background: none;
+}
+
+.tgl span {
+  position: relative;
+  display: block;
+  height: 1.8em;
+  line-height: 1.2em;
+  overflow: hidden;
+  /* font-weight: normal; */
+  text-align: center;
+  border-radius: 2em;
+  padding: 0.2em 1em;
+  border: 1px solid #fafafa;
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 0 rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease, padding 0.3s ease-in-out,
+    background 0.3s ease-in-out;
+}
+
+.tgl span:before {
+  position: relative;
+  display: block;
+  line-height: 1.3em;
+  padding: 0 0.2em;
+}
+
+.tgl span:after {
+  position: absolute;
+  display: block;
+  content: "";
+  border-radius: 2em;
+  width: 1.3em;
+  height: 1.3em;
+  margin-left: -1.45em;
+  top: 0.2em;
+  background: #ffffff;
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 0.97),
+    background 0.3s ease-in-out;
+}
+
+.tgl input[type="checkbox"] {
+  display: none !important;
+}
+
+.tgl input[type="checkbox"]:not(:checked) + span {
+  background: #de474e;
+  color: #ffffff;
+  padding-left: 1.6em;
+  padding-right: 0.4em;
+}
+
+.tgl input[type="checkbox"]:not(:checked) + span:before {
+  content: attr(data-off);
+  color: #ffffff;
+}
+
+.tgl input[type="checkbox"]:not(:checked) + span:after {
+  background: #ffffff;
+  left: 1.6em;
+}
+
+.tgl input[type="checkbox"]:checked + span {
+  background: #86d993;
+  color: #ffffff;
+  padding-left: 0.4em;
+  padding-right: 1.6em;
+}
+
+.tgl input[type="checkbox"]:checked + span:before {
+  content: attr(data-on);
+}
+
+.tgl input[type="checkbox"]:checked + span:after {
+  background: #ffffff;
+  left: 100%;
+}
+
+.tgl input[type="checkbox"]:disabled,
+.tgl input[type="checkbox"]:disabled + span,
+.tgl input[type="checkbox"]:read-only,
+.tgl input[type="checkbox"]:read-only + span {
+  cursor: not-allowed;
+}
+
+.tgl-gray input[type="checkbox"]:not(:checked) + span {
+  background: #e3e3e3;
+  color: #999999;
+}
+
+.tgl-gray input[type="checkbox"]:not(:checked) + span:before {
+  color: #999999;
+}
+
+.tgl-gray input[type="checkbox"]:not(:checked) + span:after {
+  background: #ffffff;
+}
+
+.tgl-inline {
+  display: inline-block !important;
+  vertical-align: top;
+}
+
+.tgl-inline.tgl span {
+  min-width: 50px;
+}
+
+.tgl-inline.tgl span:before {
+  line-height: 1.4em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+}
+
+.tgl-inline-label {
+  display: inline-block !important;
+  vertical-align: top;
+  line-height: 26px;
+}
+
+body {
+  font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial,
+    sans-serifsans !important;
+}
+
+.simple-toggle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 30px;
+  text-align: center;
+  margin: auto;
+}
+
+.hide {
+  display: none !important;
+}
+
+.keypadMetro input {
+  width: 100%;
+  height: 100%;
+  font-size: 5vmin !important;
+}
+
+.keypadMetro {
+  margin: 0 !important;
+  display: inline-block !important;
+  font-size: 5vmin !important;
+}
+
+.svarboks {
+  height: 5vmin;
+  font-size: 5vmin !important;
+  color: rgba(25, 26, 27, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border: none;
+  outline: none;
+  outline: none;
+  border-radius: 0;
+  /* padding-bottom: 1vmin !important;
+  padding-top: 1vmin !important;
+  padding-left: 0.4vmin !important; */
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+  box-sizing: initial !important;
+}
