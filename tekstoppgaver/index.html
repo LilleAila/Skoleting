@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta charset="UTF-8">
+    <title>Tekstoppgaver</title>
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/keypad.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery.js"></script>
+    <script src="./js/keypad.js"></script>
+    <link rel="icon" type="image/png" href="./icon.png">
+    <link rel="apple-touch-icon" type="image/png" href="./icon.png">
+</head>
+
+<body>
+    <!-- <canvas></canvas> -->
+    <div class="app">
+        <form onsubmit="return false;" class="appform">
+            <div class="appdiv">
+                <div class="text">Det er noe galt.</div>
+                <div class="svar">Prøv å laste siden på nytt</div>
+            </div>
+            <div class="svarknapp">
+                <input type="submit" value="Svar" id="svarknapp">
+            </div>
+        </form>
+        <div id="snackbar">Riktig</div>
+
+        <div class="openBtn">
+            <span></span>
+        </div>
+
+        <div class="openDiv">
+            <div class="container">
+                <h1>Velg oppgavetyper</h1>
+                <br />
+                <h1>Lettere:</h1>
+                <div class="lettere"></div>
+                <br />
+
+                <h1>Lett:</h1>
+                <div class="lett"></div>
+                <br />
+
+                <h1>Middels</h1>
+                <div class="middels"></div>
+                <br />
+
+                <h1>Vanskelig</h1>
+                <div class="vanskelig"> </div>
+                <br />
+
+                <h1>Vanskeligere</h1>
+                <div class="vanskeligere"></div>
+                <br />
+            </div>
+        </div>
+    </div>
+    <script src="./js/tekstoppgaver.js"></script>
+</body>
+
+</html>
