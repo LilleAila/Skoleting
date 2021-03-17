@@ -223,8 +223,8 @@ $(function () {
   //   tall = eval(localStorage.getItem("regneart"));
   // }
 
-  // console.log(tall);
-  // console.log(regneart);
+  console.log(tall);
+  console.log(regneart);
   generateNumbers();
   vminmax();
   numberPlace();

@@ -588,6 +588,8 @@ function option(txt = "add text", val = "add value") {
     return `<li data-text="${txt}" data-value="${val}"><a>${txt}</a></li>`;
 }
 
+var optList = ".option-list";
+
 $(function () {
     oppgArr = Object.keys(tekstoppgaver);
     // console.log(oppgArr);
@@ -631,7 +633,7 @@ function clickCbox() {
             vanskArray.push(splitTxt[0]);
         }
     });
-    // console.log("Vanskelighetsgrader:", vanskArray, "Oppgavetyper:", oppgObj);
+    console.log("Vanskelighetsgrader:", vanskArray, "Oppgavetyper:", oppgObj);
 
     velgOppgave();
 }
