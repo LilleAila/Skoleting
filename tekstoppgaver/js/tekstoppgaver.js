@@ -639,5 +639,5 @@ function clickCbox() {
 }
 
 $(function () {
-    $("body").eq(0).css("background-color", "rgb(25, 26, 27)");
+    $("body").css("background-color", "rgb(25, 26, 27)");
 });
