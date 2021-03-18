@@ -639,6 +639,7 @@ function clickCbox() {
 }
 
 $(function () {
-    $("html").css("background-color", "rgb(25, 26, 27)");
-    console.log("A");
+    // $("html").css("background-color", "rgb(25, 26, 27)");
+    // console.log("A");
+    window.parent.document.querySelectorAll("html")[0].style.backgroundColoe = "rgb(25, 26, 27)";
 });
