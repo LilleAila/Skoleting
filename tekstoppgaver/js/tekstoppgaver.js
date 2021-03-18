@@ -633,7 +633,18 @@ function clickCbox() {
             vanskArray.push(splitTxt[0]);
         }
     });
-    console.log("Vanskelighetsgrader:", vanskArray, "Oppgavetyper:", oppgObj);
+    // console.log("Vanskelighetsgrader:", vanskArray, "Oppgavetyper:", oppgObj);
 
     velgOppgave();
 }
+
+$(function () {
+    console.log("docQueryBody", document.querySelectorAll("body"));
+    console.log("docQueryBody0", document.querySelectorAll("body")[0]);
+    console.log("docQueryBody1", document.querySelectorAll("body")[1]);
+    console.log("docQueryBody2", document.querySelectorAll("body")[2]);
+    console.log("$body", $("body"));
+    console.log("$body0", $("body").eq(0));
+    console.log("$body1", $("body").eq(1));
+    console.log("$body2", $("body").eq(2));
+});
