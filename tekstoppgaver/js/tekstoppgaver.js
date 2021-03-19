@@ -301,46 +301,6 @@ var tekstoppgaver = {
                     feil();
                 }
             }
-        }],
-        "brøk": [{
-            func: function () {
-                tallTest0 = random(1, 9);
-                tallTest1 = random(1, 9);
-                tallTest2 = random(1, 9);
-                tallTest3 = random(1, 9);
-
-                if (tallTest0 > tallTest1) {
-                    tall0 = tallTest1;
-                    tall1 = tallTest0;
-                } else {
-                    tall0 = tallTest0;
-                    tall1 = tallTest1;
-                }
-
-                if (tallTest2 > tallTest3) {
-                    tall2 = tallTest3;
-                    tall3 = tallTest2;
-                } else {
-                    tall2 = tallTest2;
-                    tall3 = tallTest3;
-                }
-
-                return {
-                    text: `Hva er <brøk ekte><span>${tall0}</span><span>—</span><span>${tall1}</span></brøk> + <brøk ekte><span>${tall2}</span><span>—</span><span>${tall3}</span></brøk>`,
-                    svar: `Det er <brøk ekte><span>${svarboks}</span><span>—</span><span>${svarboks2}</span></brøk>`,
-                    riktig: {
-                        teller: tall0 + tall2,
-                        nevner: tall1 + tall3
-                    }
-                }
-            },
-            svarFunc: function () {
-                if ($("#svarboks1").val() == oppgave.riktig.teller && $("#svarboks2").val() == oppgave.riktig.nevner) {
-                    riktig();
-                } else {
-                    feil();
-                }
-            }
         }]
     },
     middels: {
@@ -439,7 +399,7 @@ var tekstoppgaver = {
                     feil()
                 }
             }
-        }],
+        }]
         // finnDenUkjentePluss: [],
         // finnDenUkjenteMinus: [],
         // finnDenUkjenteGanging: [],
@@ -473,6 +433,46 @@ var tekstoppgaver = {
                     riktig();
                 } else {
                     feil()
+                }
+            }
+        }],
+        "brøk": [{
+            func: function () {
+                tallTest0 = random(1, 9);
+                tallTest1 = random(1, 9);
+                tallTest2 = random(1, 9);
+                tallTest3 = random(1, 9);
+
+                if (tallTest0 > tallTest1) {
+                    tall0 = tallTest1;
+                    tall1 = tallTest0;
+                } else {
+                    tall0 = tallTest0;
+                    tall1 = tallTest1;
+                }
+
+                if (tallTest2 > tallTest3) {
+                    tall2 = tallTest3;
+                    tall3 = tallTest2;
+                } else {
+                    tall2 = tallTest2;
+                    tall3 = tallTest3;
+                }
+
+                return {
+                    text: `Hva er <brøk ekte><span>${tall0}</span><span>—</span><span>${tall1}</span></brøk> · <brøk ekte><span>${tall2}</span><span>—</span><span>${tall3}</span></brøk>`,
+                    svar: `Det er <brøk ekte><span>${svarboks}</span><span>—</span><span>${svarboks2}</span></brøk>`,
+                    riktig: {
+                        teller: tall0 * tall2,
+                        nevner: tall1 * tall3
+                    }
+                }
+            },
+            svarFunc: function () {
+                if ($("#svarboks1").val() == oppgave.riktig.teller && $("#svarboks2").val() == oppgave.riktig.nevner) {
+                    riktig();
+                } else {
+                    feil();
                 }
             }
         }]
