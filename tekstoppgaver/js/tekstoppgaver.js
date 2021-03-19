@@ -183,12 +183,38 @@ var personer = [{
 
 var ting = ["en pizza", "en taco", "en baguett", "en kjøttdeig", "en sjokolade", "en brus", "en agurk", "en gulrot", "en banan", "et eple", "en pakke med druer", "et ostehorn", "en tomat", "en pose med chips"];
 
-var svarboks = '<input type="number" class="svarboks" title="Svar" />';
+var svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />',
+    svarboks2 = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks2" tabindex="0" />',
+    svarboks3 = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks3" tabindex="0" />',
+    svarboks4 = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks4" tabindex="0" />',
+    svarboks4 = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks5" tabindex="0" />';
 
 var typeOppgave, typerOppgave;
 
 var person = personer[0],
-    pengerStart, penger1, penger2, ting1, ting2, svar, personer1;
+    pengerStart, penger1, penger2, ting1, ting2, svar, personer1,
+    tall0 = 0,
+    tall1 = 0,
+    tall2 = 0,
+    tall3 = 0,
+    tall4 = 0,
+    tall5 = 0,
+    tall6 = 0,
+    tall7 = 0,
+    tall8 = 0,
+    tall9 = 0,
+    tall10 = 0,
+    tallTest0 = 0,
+    tallTest1 = 0,
+    tallTest2 = 0,
+    tallTest3 = 0,
+    tallTest4 = 0,
+    tallTest5 = 0,
+    tallTest6 = 0,
+    tallTest7 = 0,
+    tallTest8 = 0,
+    tallTest9 = 0,
+    tallTest10 = 0;
 
 var vanskelighetsgrader = [];
 
@@ -234,7 +260,6 @@ var tekstoppgaver = {
                 penger1 = random(1, 9);
 
                 svar = pengerStart + penger1;
-                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
                 return {
                     text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} får ${penger1} kr til bursdagen.<br/>Hvor mange kroner har ${person.pronomen}?`,
@@ -262,7 +287,6 @@ var tekstoppgaver = {
                 ting1 = randomItem();
 
                 svar = pengerStart - penger1;
-                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
                 return {
                     text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} kjøper ${ting1} for ${penger1} kr.<br/>Hvor mange kroner har ${person.pronomen} igjen?`,
@@ -272,6 +296,46 @@ var tekstoppgaver = {
             },
             svarFunc: function () {
                 if ($("#svarboks1").val() == oppgave.riktig) {
+                    riktig();
+                } else {
+                    feil();
+                }
+            }
+        }],
+        "brøk": [{
+            func: function () {
+                tallTest0 = random(1, 9);
+                tallTest1 = random(1, 9);
+                tallTest2 = random(1, 9);
+                tallTest3 = random(1, 9);
+
+                if (tallTest0 > tallTest1) {
+                    tall0 = tallTest1;
+                    tall1 = tallTest0;
+                } else {
+                    tall0 = tallTest0;
+                    tall1 = tallTest1;
+                }
+
+                if (tallTest2 > tallTest3) {
+                    tall2 = tallTest3;
+                    tall3 = tallTest2;
+                } else {
+                    tall2 = tallTest2;
+                    tall3 = tallTest3;
+                }
+
+                return {
+                    text: `Hva er <brøk ekte><span>${tall0}</span><span>—</span><span>${tall1}</span></brøk> + <brøk ekte><span>${tall2}</span><span>—</span><span>${tall3}</span></brøk>`,
+                    svar: `Det er <brøk ekte><span>${svarboks}</span><span>—</span><span>${svarboks2}</span></brøk>`,
+                    riktig: {
+                        teller: tall0 + tall2,
+                        nevner: tall1 + tall3
+                    }
+                }
+            },
+            svarFunc: function () {
+                if ($("#svarboks1").val() == oppgave.riktig.teller && $("#svarboks2").val() == oppgave.riktig.nevner) {
                     riktig();
                 } else {
                     feil();
@@ -293,7 +357,6 @@ var tekstoppgaver = {
                 ting2 = randomItem();
 
                 svar = pengerStart - (penger1 + penger2);
-                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
                 return {
                     text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} kjøper ${ting1} for ${penger1} kr og ${ting2} for ${penger2} kr.<br/>Hvor mange kroner har ${person.pronomen} igjen?`,
@@ -317,7 +380,6 @@ var tekstoppgaver = {
                 penger1 = random(5, 35);
 
                 svar = pengerStart + penger1;
-                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
                 return {
                     text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} får ${penger1} kr til bursdagen.<br/>Hvor mange kroner har ${person.pronomen}?`,
@@ -340,7 +402,6 @@ var tekstoppgaver = {
                 penger2 = random(50, 100);
 
                 svar = penger1 + penger2;
-                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
                 return {
                     text: `${person.navn} har bursdag.<br/>${cfl(person.pronomen)} får ${penger1} kr i familiebesøket og ${penger2} kr i  klassebesøket.<br/>Hvor mange penger får ${person.pronomen}?`,
@@ -364,7 +425,6 @@ var tekstoppgaver = {
                 personer1 = random(2, 10);
 
                 svar = penger1 * personer1;
-                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
                 return {
                     text: `${person.navn} skal gi penger til ${personer1} personer.<br/>Alle får ${penger1} kr hver.<br/>Hvor mange penger gir ${person.pronomen}?`,
@@ -401,7 +461,6 @@ var tekstoppgaver = {
                 personer1 = random(2, 10);
 
                 svar = penger1 * personer1;
-                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
                 return {
                     text: `${person.navn} skal gi penger til ${personer1} personer.<br/>Alle får ${penger1} kr hver.<br/>Hvor mange penger gir ${person.pronomen}?`,
@@ -427,7 +486,6 @@ var tekstoppgaver = {
                 personer1 = random(2, 10);
 
                 svar = penger1 * personer1;
-                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
                 return {
                     text: `${person.navn} skal gi penger til ${personer1} personer.<br/>Alle får ${penger1} kr hver.<br/>Hvor mange penger gir ${person.pronomen}?`,
