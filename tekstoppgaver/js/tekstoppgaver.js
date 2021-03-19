@@ -637,9 +637,3 @@ function clickCbox() {
 
     velgOppgave();
 }
-
-$(function () {
-    // $("html").css("background-color", "rgb(25, 26, 27)");
-    // console.log("A");
-    window.parent.$("html").css("background-color", "rgb(25, 26, 27)");
-});
