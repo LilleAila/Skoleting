@@ -216,6 +216,8 @@ var person = personer[0],
     tallTest9 = 0,
     tallTest10 = 0;
 
+var helBrøk = false;
+
 var vanskelighetsgrader = [];
 
 var oppgObj = {};
@@ -339,12 +341,18 @@ var tekstoppgaver = {
                     }
                 }
 
-                console.log("teller", teller);
-                console.log("nevner", nevner);
+                // console.log("teller", teller);
+                // console.log("nevner", nevner);
+
+                var ekte = `<brøk ekte><span>${svarboks2}</span><span>—</span><span>${svarboks3}</span></brøk></brøk>`;
+                if (teller.includes(0)) {
+                    ekte = "";
+                    helBrøk = true;
+                }
 
                 return {
                     text: `Hva er <brøk blandet><brøk hel>${tall3}</brøk><brøk ekte><span>${tall0}</span><span>—</span><span>${tall2}</span></brøk></brøk> + <brøk blandet><brøk hel>${tall4}</brøk><brøk ekte><span>${tall1}</span><span>—</span><span>${tall2}</span></brøk></brøk>`,
-                    svar: `Det er <brøk><brøk hel>${svarboks}</brøk><brøk ekte><span>${svarboks2}</span><span>—</span><span>${svarboks3}</span></brøk></brøk>`,
+                    svar: `Det er <brøk><brøk hel>${svarboks}</brøk>${ekte}`,
                     riktig: {
                         teller: teller,
                         nevner: nevner,
@@ -355,7 +363,7 @@ var tekstoppgaver = {
             svarFunc: function () {
                 // console.log("teller", oppgave.riktig["teller"], oppgave.riktig["teller"].includes(eval($("#svarboks1").val())), $("#svarboks1").val());
                 // console.log("nevner", oppgave.riktig["nevner"], oppgave.riktig["nevner"].includes(eval($("#svarboks2").val())), $("#svarboks2").val());
-                if (oppgave.riktig["teller"].includes(eval($("#svarboks2").val())) && oppgave.riktig["nevner"].includes(eval($("#svarboks3").val())) && $("#svarboks1").val() == oppgave.riktig.hele) {
+                if ($("#svarboks1").val() == oppgave.riktig.hele && (helBrøk = true || (oppgave.riktig["teller"].includes(eval($("#svarboks2").val())) && oppgave.riktig["nevner"].includes(eval($("#svarboks3").val()))))) {
                     riktig();
                 } else {
                     feil();
