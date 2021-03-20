@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
+  font-family: Arial, Helvetica, sans-serif !important;
 }
 
 body {
@@ -19,6 +20,7 @@ body {
     rgba(0, 0, 0, 1) 5%
   );
   color: rgba(211, 207, 201, 1);
+  font-family: Arial, Helvetica, sans-serif !important;
 }
 
 /* canvas {
@@ -453,18 +455,6 @@ body {
   display: none !important;
 }
 
-.keypadMetro input {
-  width: 100%;
-  height: 100%;
-  font-size: 5vmin !important;
-}
-
-.keypadMetro {
-  margin: 0 !important;
-  display: inline-block !important;
-  font-size: 5vmin !important;
-}
-
 .svarboks {
   height: 5vmin;
   font-size: 5vmin !important;
@@ -555,4 +545,41 @@ brøk[uekte] {
 
 brøk[hel] {
   font-weight: 700;
+}
+
+#reloadBtn {
+  width: 10vmin;
+  height: 10vmin;
+
+  position: fixed;
+  top: 0vmin;
+  left: 0vmin;
+
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background-color: #007cbe;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition: transform 0.5s ease, background-color 0.5s ease !important;
+
+  z-index: 2;
+
+  color: #1a1a1b !important;
+
+  font-size: 10vmin;
+}
+
+#reloadBtn:hover {
+  background-color: #41a2df;
+}
+
+#reloadBtn:active {
+  background-color: #1450c7;
 }

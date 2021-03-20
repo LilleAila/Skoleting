@@ -622,11 +622,6 @@ function velgOppgave() {
 
         $(".text").html(oppgave.text);
         $(".svar").html(oppgave.svar);
-        // resizeText();
-
-        // if (isMobile.any || isMobile.phone || isMobile.tablet) {
-        //     $(".svarboks").attr("data-role", "keypad").addClass("keypadMetro");
-        // }
 
         if (!$(".openDiv").hasClass("showOpenDiv")) {
             $("#svarboks1").focus();
@@ -778,3 +773,7 @@ function clickCbox() {
 
     velgOppgave();
 }
+
+$("#reloadBtn").click(function () {
+    velgOppgave();
+});
