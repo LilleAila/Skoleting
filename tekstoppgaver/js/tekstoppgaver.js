@@ -250,6 +250,10 @@ function cfl(str) {
     return str.slice(0, 1).toUpperCase() + str.slice(1);
 }
 
+function sortNumbers(a, b) {
+    return a - b;
+}
+
 var tekstoppgaver = {
     lettere: {
         pluss: [{
@@ -296,6 +300,62 @@ var tekstoppgaver = {
             },
             svarFunc: function () {
                 if ($("#svarboks1").val() == oppgave.riktig) {
+                    riktig();
+                } else {
+                    feil();
+                }
+            }
+        }],
+        "brøk": [{
+            func: function () {
+                tallTest0 = random(1, 8);
+                tallTest1 = random(1, 8);
+                tallTest2 = random(1, 8);
+                tall3 = random(1, 4);
+                tall4 = random(1, 4);
+
+                var tallArr = [tallTest0, tallTest1, tallTest2];
+                tallArr.sort(sortNumbers);
+                tall0 = tallArr[0];
+                tall1 = tallArr[1];
+                tall2 = tallArr[2] + 1;
+
+                var hele = tall3 + tall4,
+                    tall1_2 = tall0 + tall1;
+
+                if (tall0 + tall1 >= tall2) {
+                    hele++;
+                    // tall1_2 = tall1 - tall2;
+                    tall1_2 = tall0 + tall1 - tall2;
+                }
+
+                var nevner = [],
+                    teller = [];
+
+                for (var i = tall2; i >= 0; i--) {
+                    if ((tall2) % i == 0 && tall1_2 % i == 0) {
+                        nevner.push(tall2 / i);
+                        teller.push(tall1_2 / i);
+                    }
+                }
+
+                console.log("teller", teller);
+                console.log("nevner", nevner);
+
+                return {
+                    text: `Hva er <brøk blandet><brøk hel>${tall3}</brøk><brøk ekte><span>${tall0}</span><span>—</span><span>${tall2}</span></brøk></brøk> + <brøk blandet><brøk hel>${tall4}</brøk><brøk ekte><span>${tall1}</span><span>—</span><span>${tall2}</span></brøk></brøk>`,
+                    svar: `Det er <brøk><brøk hel>${svarboks}</brøk><brøk ekte><span>${svarboks2}</span><span>—</span><span>${svarboks3}</span></brøk></brøk>`,
+                    riktig: {
+                        teller: teller,
+                        nevner: nevner,
+                        hele: hele
+                    }
+                }
+            },
+            svarFunc: function () {
+                // console.log("teller", oppgave.riktig["teller"], oppgave.riktig["teller"].includes(eval($("#svarboks1").val())), $("#svarboks1").val());
+                // console.log("nevner", oppgave.riktig["nevner"], oppgave.riktig["nevner"].includes(eval($("#svarboks2").val())), $("#svarboks2").val());
+                if (oppgave.riktig["teller"].includes(eval($("#svarboks2").val())) && oppgave.riktig["nevner"].includes(eval($("#svarboks3").val())) && $("#svarboks1").val() == oppgave.riktig.hele) {
                     riktig();
                 } else {
                     feil();
