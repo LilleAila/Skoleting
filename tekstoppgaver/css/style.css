@@ -540,7 +540,8 @@ body {
   width: 90%;
 }
 
-brøk[ekte] {
+brøk[ekte],
+brøk[uekte] {
   transform: translateY(-35%);
   min-width: 0;
   display: inline-flex;
@@ -550,4 +551,8 @@ brøk[ekte] {
   text-align: center;
   min-height: 0;
   position: relative;
+}
+
+brøk[hel] {
+  font-weight: 700;
 }

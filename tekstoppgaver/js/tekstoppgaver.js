@@ -459,17 +459,32 @@ var tekstoppgaver = {
                     tall3 = tallTest3;
                 }
 
+                var nevner = [],
+                    teller = [];
+
+                for (var i = tall1 * tall3; i >= 0; i--) {
+                    if ((tall1 * tall3) % i == 0 && (tall0 * tall2) % i == 0) {
+                        nevner.push((tall1 * tall3) / i);
+                        teller.push((tall0 * tall2) / i);
+                    }
+                }
+
+                // console.log("teller", teller);
+                // console.log("nevner", nevner);
+
                 return {
                     text: `Hva er <brøk ekte><span>${tall0}</span><span>—</span><span>${tall1}</span></brøk> · <brøk ekte><span>${tall2}</span><span>—</span><span>${tall3}</span></brøk>`,
                     svar: `Det er <brøk ekte><span>${svarboks}</span><span>—</span><span>${svarboks2}</span></brøk>`,
                     riktig: {
-                        teller: tall0 * tall2,
-                        nevner: tall1 * tall3
+                        teller: teller,
+                        nevner: nevner
                     }
                 }
             },
             svarFunc: function () {
-                if ($("#svarboks1").val() == oppgave.riktig.teller && $("#svarboks2").val() == oppgave.riktig.nevner) {
+                // console.log("teller", oppgave.riktig["teller"], oppgave.riktig["teller"].includes(eval($("#svarboks1").val())), $("#svarboks1").val());
+                // console.log("nevner", oppgave.riktig["nevner"], oppgave.riktig["nevner"].includes(eval($("#svarboks2").val())), $("#svarboks2").val());
+                if (oppgave.riktig["teller"].includes(eval($("#svarboks1").val())) && oppgave.riktig["nevner"].includes(eval($("#svarboks2").val()))) {
                     riktig();
                 } else {
                     feil();
