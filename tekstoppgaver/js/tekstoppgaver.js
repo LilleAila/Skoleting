@@ -183,11 +183,11 @@ var personer = [{
 
 var ting = ["en pizza", "en taco", "en baguett", "en kjøttdeig", "en sjokolade", "en brus", "en agurk", "en gulrot", "en banan", "et eple", "en pakke med druer", "et ostehorn", "en tomat", "en pose med chips"];
 
-var svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />',
-    svarboks2 = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks2" tabindex="0" />',
-    svarboks3 = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks3" tabindex="0" />',
-    svarboks4 = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks4" tabindex="0" />',
-    svarboks4 = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks5" tabindex="0" />';
+var svarboks = '<input type="number" pattern="[0-9]*" required inputmode="numeric" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />',
+    svarboks2 = '<input type="number" pattern="[0-9]*" required inputmode="numeric" class="svarboks w2l" title="Svar" id="svarboks2" tabindex="0" />',
+    svarboks3 = '<input type="number" pattern="[0-9]*" required inputmode="numeric" class="svarboks w2l" title="Svar" id="svarboks3" tabindex="0" />',
+    svarboks4 = '<input type="number" pattern="[0-9]*" required inputmode="numeric" class="svarboks w2l" title="Svar" id="svarboks4" tabindex="0" />',
+    svarboks4 = '<input type="number" pattern="[0-9]*" required inputmode="numeric" class="svarboks w2l" title="Svar" id="svarboks5" tabindex="0" />';
 
 var typeOppgave, typerOppgave;
 
@@ -616,9 +616,9 @@ function velgOppgave() {
         $(".svar").html(oppgave.svar);
         // resizeText();
 
-        if (isMobile.any || isMobile.phone || isMobile.tablet) {
-            $(".svarboks").attr("data-role", "keypad").addClass("keypadMetro");
-        }
+        // if (isMobile.any || isMobile.phone || isMobile.tablet) {
+        //     $(".svarboks").attr("data-role", "keypad").addClass("keypadMetro");
+        // }
 
         if (!$(".openDiv").hasClass("showOpenDiv")) {
             $("#svarboks1").focus();
